@@ -13,7 +13,7 @@ public class conexion {
     private static String password = "";
     private static Connection con;
 
-    public static Connection getConnection() throws SQLException{
+    public static Connection getConnection(){
         try {
             Class.forName(driverName);
             try {

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
+import java.sql.SQLException;
 
 public class Listar extends HttpServlet {
 
@@ -28,6 +29,8 @@ public class Listar extends HttpServlet {
             response.getWriter().write(json);
             
         } catch (URISyntaxException ex) {
+            Logger.getLogger(Listar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(Listar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

@@ -15,8 +15,9 @@ public class DaoElementos {
 
     private Connection conexion;
 
-    public DaoElementos() throws URISyntaxException {
+    public DaoElementos() throws URISyntaxException, SQLException {
         conexion = Util.conexion.getConnection();
+        System.out.println(conexion);
     }
 
     public boolean insertar(Elemento elm) {
