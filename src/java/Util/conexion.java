@@ -10,7 +10,7 @@ public class conexion {
     private static String url = "jdbc:mysql://localhost:3306/biblioteca";    
     private static String driverName = "com.mysql.jdbc.Driver";   
     private static String username = "root";   
-    private static String password = "root";
+    private static String password = "";
     private static Connection con;
 
     public static Connection getConnection() throws SQLException{
