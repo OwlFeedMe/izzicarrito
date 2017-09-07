@@ -23,15 +23,10 @@ public class Registro extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        
+            throws ServletException, IOException {        
         String identificador  = request.getParameter("identificador");
         String clave = request.getParameter("pwd2");
-        System.out.println(clave);
-        String colegio = request.getParameter("colegio");
-        System.out.println(colegio);
-        
+        String colegio = request.getParameter("colegio");        
         try {
             DaoUsuario daoU = new DaoUsuario();
             boolean respuesta = daoU.validarRegistro(identificador, clave, colegio);

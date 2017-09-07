@@ -30,14 +30,12 @@
                     }).done(function (response) {
                         console.log(response);
                         var valor = response;
-                        if (valor["respuesta"] === true) {
+                        if (valor === true) {
                             alert("Usuario registrado satisfactoriamente ahora puede iniciar sesión");
                             window.location.href = "#about";
                         } else {
                             alert("Problemas durante el registro");
                         }
-
-
                     });
 
                 } else {
