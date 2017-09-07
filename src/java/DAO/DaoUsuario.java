@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.net.URISyntaxException;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class DaoUsuario {
 
@@ -51,6 +52,26 @@ public class DaoUsuario {
             //3. Hacer la ejecucion
             res = statement.execute();
 
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return res;
+    }
+    public boolean validarUsuario(String usuario, String clave) {
+        boolean res=false;
+        try {
+
+            String consulta = "select * from Usuario where identificador='"
+                    + usuario + "' and clave='" + clave + "'";
+            Statement statement
+                    = this.conexion.createStatement();
+
+            ResultSet resultado
+                    = statement.executeQuery(consulta);
+            if (resultado.next()) {
+                res=true;
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

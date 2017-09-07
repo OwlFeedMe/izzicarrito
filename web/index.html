@@ -54,6 +54,34 @@
                     alert("Debe llenar los campos");
                 }
             }
+            function iniciarSesion(user, pass) {
+                if ((user !== "") && (pass !== "")) {
+                    var parametros = {
+                        "user": user,
+                        "pass": pass
+                    };
+                    $.ajax({
+                        data: parametros,
+                        url: "Inicio",
+                        type: "POST"
+
+                    }).done(function (response) {
+                        console.log(response);
+                        var valor = response;
+                        if (valor === true) {
+                            window.location.href = "home.html";
+                        } else {
+                            alert("Usurio y/o contraseña incorrectos");
+                        }
+                    });
+
+                }else {
+                alert("Debe ingresar los datos para iniciar sesión");
+            }
+        }
+
+
+         
         </script>
     </head>
 
@@ -213,9 +241,9 @@
                 <div class="log-in">
 
                     <h1 class="heading">Iniciar Sesión en Library-Soft</h1>
-                    <input type="text" value="" placeholder="Usuario">
-                    <input type="password" value="" placeholder="Contraseña">
-                    <button id="ingresar" type="submit" value="submit">INGRESAR</button>
+                    <input name="user" id="user" type="text" placeholder="Usuario">
+                    <input name="pass" id="pass" type="password"  placeholder="Contraseña">
+                    <button id="ingresar" onclick="iniciarSesion(($('#user').val(), $('#pass').val()));" type="button">INGRESAR</button>
                 </div>
                 <a class="close-btn" href="#start"><i class=" fa fa-lg fa-times-circle"></i></a>
             </div>
