@@ -21,6 +21,7 @@ public class DaoUsuario {
 
     public boolean validarRegistro(String usuario, String clave, String colegio) {
         boolean res = false;
+        System.out.println(usuario);
         try {
             //1.Establecer la consulta
             String consulta = "select * from usuarios where identificador=? and colegio=?";

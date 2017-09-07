@@ -28,7 +28,9 @@ public class Registro extends HttpServlet {
         
         String identificador  = request.getParameter("identificador");
         String clave = request.getParameter("pwd2");
+        System.out.println(clave);
         String colegio = request.getParameter("colegio");
+        System.out.println(colegio);
         
         try {
             DaoUsuario daoU = new DaoUsuario();
