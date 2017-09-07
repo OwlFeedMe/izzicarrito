@@ -1,11 +1,10 @@
 package Controlador;
 
-import DAO.DaoElementos;
+
 import DAO.DaoUsuario;
-import Modelo.Elemento;
+import Modelo.Usuario;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -26,9 +25,10 @@ public class Registro extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String colegio = request.getParameter("colegio");
+        
         String identificador  = request.getParameter("identificador");
         String clave = request.getParameter("pwd2");
+        String colegio = request.getParameter("colegio");
         
         try {
             DaoUsuario daoU = new DaoUsuario();
