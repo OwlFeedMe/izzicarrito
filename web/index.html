@@ -24,7 +24,7 @@
                     <li>librarysoft.com.co</li>
                     <li><a href="index.html" title="Inicio"><i class="fa fa-lg fa-home"></i></a></li>
                     <li><a href="#about" title="Iniciar Sesión" onclick="mostrar()"><i class="fa fa-lg fa-sign-in"></i></a></li>
-                    <li><a href="sign-in.html" title="Registrarse"><i class="fa fa-lg fa-edit"></i></a></li>
+                    <li><a href="#about2" onclick="mostrar()" title="Registrarse"><i class="fa fa-lg fa-edit"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -177,6 +177,23 @@
                 <button id="ingresar" type="submit" value="submit">INGRESAR</button>
             </div>
             <a class="close-btn" href="#start"><i class=" fa fa-lg fa-times-circle"></i></a>
+        </div>
+    </div>
+    <!--Ventana modal de inicio de registro-->
+    <span id="start2" class="target2"></span>
+    <span id="about2" class="target2"></span>
+    <div class="modal2">
+        <div class="content2 vertical-align-middle">
+            <div class="sign-in">
+                <h1 class="heading">Registrarse en Library-Soft</h1>
+                <input type="text" value="" placeholder="Nombre del Colegio o Universidad">
+                <input type="text" value="" placeholder="Numero de identificación">
+                <input type="password" value="" placeholder="Contraseña">
+                <input type="password" value="" placeholder="Repita Contraseña">
+                <input type="email" value="" placeholder="Correo electrónico">
+                <button id="ingresar" type="submit" value="submit">REGISTRARSE</button>
+            </div>
+            <a class="close-btn" href="#start2"><i class=" fa fa-lg fa-times-circle"></i></a>
         </div>
     </div>
 
