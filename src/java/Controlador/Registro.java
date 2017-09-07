@@ -1,6 +1,7 @@
 package Controlador;
 
 import DAO.DaoElementos;
+import DAO.DaoUsuario;
 import Modelo.Elemento;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -14,29 +15,33 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import java.sql.SQLException;
 
-public class Listar extends HttpServlet {
+public class Registro extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-         try {
-            ArrayList<Elemento> lista = null;
-            DaoElementos daoE = new DaoElementos();
-            lista = daoE.listarTodo();            
-            String json = new Gson().toJson(lista);
-            response.setContentType("application/json");
-            response.getWriter().write(json);
-            
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(Listar.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Listar.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            throws ServletException, IOException {       
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        String colegio = request.getParameter("colegio");
+        String identificador  = request.getParameter("identificador");
+        String clave = request.getParameter("pwd2");
+        
+        try {
+            DaoUsuario daoU = new DaoUsuario();
+            boolean respuesta = daoU.validarRegistro(identificador, clave, colegio);
+            String json = new Gson().toJson(respuesta);
+            response.setContentType("application/json");
+            response.getWriter().write(json);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(Listar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Listar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }
 }

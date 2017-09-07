@@ -90,6 +90,21 @@
     border-bottom: 1px solid;
     color: black;
 }
+.sign-in select{
+    margin: 20px;
+    padding: 15px;
+    width: 80%;
+    margin-left: 10%;
+    font-size: 100%;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid;
+    color: black;
+    text-align-last: center;
+}
+.sign-in option{
+    text-align: center;
+}
 
 .sign-in button {
     width: 40%;
@@ -120,6 +135,7 @@
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
 
 
 @media only screen and (max-width: 500px) {  
