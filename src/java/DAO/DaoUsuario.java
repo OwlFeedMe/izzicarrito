@@ -2,14 +2,10 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import Modelo.Elemento;
 import java.net.URISyntaxException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.ResultSet;
 
 public class DaoUsuario {
 
@@ -19,26 +15,26 @@ public class DaoUsuario {
         conexion = Util.conexion.getConnection();
     }
 
-    public boolean validarRegistro(String usuario, String clave, String colegio) {
+    public ArrayList validarRegistro(String usuario, String clave, String colegio) {
+        ArrayList<Boolean> arr1 = new ArrayList<>();
         boolean res = false;
-        System.out.println(usuario);
         try {
-            //1.Establecer la consulta
-            String consulta = "select * from usuarios where identificador=? and colegio=?";
-            //2. Crear el PreparedStament
-            PreparedStatement statement = this.conexion.prepareStatement(consulta);
-            //-----------------------------------
+            String consulta = "select * from usuarios where identificador=? and colegio=?";            
+            PreparedStatement statement
+                    = this.conexion.prepareStatement(consulta);
             statement.setString(1, usuario);
             statement.setString(2, colegio);
-            //3. Hacer la ejecucion
-            res = statement.execute();
-
+            ResultSet resultado = statement.executeQuery();
+            while (resultado.next()) {
+                res = true;
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
-        crearUsuarioActivo(usuario, clave);
-        return res;
+        boolean res2 = crearUsuarioActivo(usuario, clave);
+        arr1.add(res);
+        arr1.add(res2);
+        return arr1;
         
     }
 

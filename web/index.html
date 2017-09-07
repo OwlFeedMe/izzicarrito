@@ -29,12 +29,17 @@
 
                     }).done(function (response) {
                         console.log(response);
-                        var valor = response;
-                        if (valor === true) {
+                        var valor=[];
+                        valor = response;
+                        if (valor[0] === true && valor[1]===true) {
                             alert("Usuario registrado satisfactoriamente ahora puede iniciar sesión");
                             window.location.href = "#about";
                         } else {
-                            alert("Problemas durante el registro");
+                            if (valor[0]===true && valor[1]===false) {
+                                alert("Este usuario ya se ha registrado");
+                            }else{
+                                alert("Problemas durante el registro")
+                            }
                         }
                     });
 
@@ -199,7 +204,7 @@
         <span id="start" class="target"></span>
         <span id="about" class="target"></span>
         <div class="modal">
-            <div class="content vertical-align-middle">
+            <div class="content">
                 <div class="log-in">
 
                     <h1 class="heading">Iniciar Sesión en Library-Soft</h1>
@@ -214,7 +219,7 @@
         <span id="start2" class="target2"></span>
         <span id="about2" class="target2"></span>
         <div class="modal2">
-            <div class="content2 vertical-align-middle">
+            <div class="content2">
                 <div class="sign-in">
                     <h1 class="heading">Registrarse en Library-Soft</h1>
                     <select name="colegio" id="colegio">

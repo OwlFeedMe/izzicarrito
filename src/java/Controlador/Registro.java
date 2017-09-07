@@ -2,7 +2,6 @@ package Controlador;
 
 
 import DAO.DaoUsuario;
-import Modelo.Usuario;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Registro extends HttpServlet {
 
@@ -29,14 +29,15 @@ public class Registro extends HttpServlet {
         String colegio = request.getParameter("colegio");        
         try {
             DaoUsuario daoU = new DaoUsuario();
-            boolean respuesta = daoU.validarRegistro(identificador, clave, colegio);
-            String json = new Gson().toJson(respuesta);
+            ArrayList<Boolean> arr1 = null;
+            arr1 = daoU.validarRegistro(identificador, clave, colegio);
+            String json = new Gson().toJson(arr1);
             response.setContentType("application/json");
-            response.getWriter().write(json);
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(Listar.class.getName()).log(Level.SEVERE, null, ex);
+            response.getWriter().write(json);        
         } catch (SQLException ex) {
             Logger.getLogger(Listar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
