@@ -37,8 +37,8 @@
                         } else {
                             if (valor[0]===true && valor[1]===false) {
                                 alert("Este usuario ya se ha registrado");
-                            }else{
-                                alert("Problemas durante el registro")
+                            }if(valor[0]===false){
+                                alert("Usted no se encuentra asociado a esta institución");
                             }
                         }
                     });
