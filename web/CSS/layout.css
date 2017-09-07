@@ -1,13 +1,9 @@
 @charset "utf-8";
 @import url("font-awesome.min.css");
 @import url("framework.css");
+@import url("style.css");
 
 /*Diseño Log-in */
-
-.log-in {
-    background-color: white;
-    padding-bottom: 30px;
-}
 
 .log-in h1 {
     text-align: center;
@@ -22,7 +18,7 @@
     padding: 15px;
     width: 60%;
     margin-left: 20%;
-    font-size: 200%;
+    font-size: 100%;
     text-align: center;
     border: none;
     border-bottom: 1px solid;
@@ -32,7 +28,7 @@
 .log-in button {
     width: 30%;
     margin-left: 35%;
-    font-size: 150%;
+    font-size: 90%;
     text-align: center;
     border: 1px solid;
     padding: 8px 18px 10px;
@@ -42,6 +38,33 @@
     border-color: transparent;
     color: #FFFFFF;
     background-color: #EA5616;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+.log-in button:hover {
+    background-color: green;
+}
+
+
+.log-in button:active {
+    background-color: green;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+@media only screen and (max-width: 500px) {  
+    .log-in h1 {
+        padding-top: 10px;
+        font-size: 17px;
+    }   
+    .log-in button {
+        width: 40%;
+        margin-left: 30%;
+        margin-bottom: 30px;
+    }
 }
 
 
@@ -1317,5 +1340,5 @@ table a,
     #header #quickinfo li {
         display: block;
         margin-right: 0;
-    }    
+    }
 }
