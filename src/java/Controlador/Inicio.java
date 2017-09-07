@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class Inicio extends HttpServlet { 
 

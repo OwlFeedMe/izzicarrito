@@ -59,19 +59,17 @@ public class DaoUsuario {
         return res;
     }
     public boolean validarUsuario(String usuario, String clave) {
-        boolean res=false;
+        boolean res = false;
         try {
 
-            String consulta = "select * from Usuario where identificador='"
-                    + usuario + "' and clave='" + clave + "'";
-            Statement statement
-                    = this.conexion.createStatement();
-
-            ResultSet resultado
-                    = statement.executeQuery(consulta);
-            if (resultado.next()) {
-                res=true;
-            }
+            String consulta = "select * from usuarioactivo where usuario=? and clave=?";
+            PreparedStatement statement = this.conexion.prepareStatement(consulta);
+            //-----------------------------------
+            statement.setString(1, usuario);
+            statement.setString(2, clave);
+            //3. Hacer la ejecucion
+            res = statement.execute();
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
