@@ -2,6 +2,85 @@
 @import url("font-awesome.min.css");
 @import url("framework.css");
 @import url("style.css");
+#imagenPrincipal {
+    height: 100px;
+    width: 350px;
+}
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#contenedor_carga {
+    background-color: rgba(255, 255, 255, 1);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    z-index: 10000;
+}
+
+#contenedor_carga img {
+    height: 100px;
+    width: 350px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 160px;
+    margin: auto;
+}
+
+#contenedor_carga .tag {
+    height: 70px;
+    width: 70px;
+    position: fixed;
+    font-size: 20px;
+    color: black;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -160px;
+    margin: auto;
+}
+
+#carga {
+    border: 13px solid #ccc;
+    border-top-color: #EA5616;
+    border-top-style: groove;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    -webkit-animation: girar 1s linear infinite;
+    -moz-animation: girar 1s linear infinite;
+    -o-animation: girar 1s linear infinite;
+    animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 /*Diseño Log-in */
 
@@ -41,13 +120,13 @@
     outline: none;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #999;    
+    box-shadow: 0 9px #999;
     margin-bottom: 30px;
 }
+
 .log-in button:hover {
     background-color: green;
 }
-
 
 .log-in button:active {
     background-color: green;
@@ -55,12 +134,11 @@
     transform: translateY(4px);
 }
 
-
-@media only screen and (max-width: 500px) {  
+@media only screen and (max-width: 500px) {
     .log-in h1 {
         padding-top: 10px;
         font-size: 17px;
-    }   
+    }
     .log-in button {
         width: 40%;
         margin-left: 30%;
@@ -70,7 +148,10 @@
 
 
 /*--------------------------------*/
+
+
 /*Diseño Sign-in */
+
 .sign-in h1 {
     text-align: center;
     color: black;
@@ -90,7 +171,8 @@
     border-bottom: 1px solid;
     color: black;
 }
-.sign-in select{
+
+.sign-in select {
     margin: 20px;
     padding: 15px;
     width: 80%;
@@ -102,7 +184,8 @@
     color: black;
     text-align-last: center;
 }
-.sign-in option{
+
+.sign-in option {
     text-align: center;
 }
 
@@ -122,13 +205,13 @@
     outline: none;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #999;    
+    box-shadow: 0 9px #999;
     margin-bottom: 30px;
 }
+
 .sign-in button:hover {
     background-color: green;
 }
-
 
 .sign-in button:active {
     background-color: green;
@@ -136,13 +219,11 @@
     transform: translateY(4px);
 }
 
-
-
-@media only screen and (max-width: 500px) {  
+@media only screen and (max-width: 500px) {
     .sign-in h1 {
         padding-top: 10px;
         font-size: 17px;
-    }   
+    }
     .sign-in button {
         width: 60%;
         margin-left: 20%;
@@ -150,8 +231,8 @@
     }
 }
 
-/*--------------------------------*/
 
+/*--------------------------------*/
 
 #topbar {
     padding: 15px 0;
