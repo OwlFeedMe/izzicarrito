@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
     getUser();
 });
 
@@ -11,8 +11,12 @@ function getUser() {
         console.log(response);
         if (response == "false") {
             window.location.href = "index.html";
-        } else {
-            alert("Bienvenido " + response.nombreSol);
+        } else {            
+            document.getElementById('perfil').innerHTML = '<img src="'+response.imagen+'" alt="NotFound">' + '<br>'
+                    + '<p>ID de Usuario: ' + response.identificador + '</p>' + '<br>'
+                    + '<p>Nombre: ' + response.nombreSol + '</p>' + '<br>'
+                    + '<p>Colegio: ' + response.colegio + '</p>' + '<br>'
+                    + '<p>Curso:' + response.cursoArea + '</p>' + '<br>';
         }
     });
 

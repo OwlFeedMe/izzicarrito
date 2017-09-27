@@ -82,6 +82,7 @@ public class DaoUsuario {
                 user.setCursoArea(resultado.getString("cursoArea"));
                 user.setColegio(resultado.getString("colegio"));
                 user.setClave(resultado.getString("clave"));
+                user.setImagenUsuario(resultado.getString("imagen"));
                 respuesta = user;
             }
 

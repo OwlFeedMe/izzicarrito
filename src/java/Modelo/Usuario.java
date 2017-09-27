@@ -8,10 +8,20 @@ public class Usuario {
     String cursoArea;/*Si es estudiante se pone el curso, si es docente se pone el area del docente, si es administrador pone el cargo*/
     String colegio;/*Colegio al que pertenece el estudiante*/
     String clave;/*Clave para el inicio de sesión*/
+    String imagenUsuario; /*Imagen personalizada del usuario*/
 
     public String getClave() {
         return clave;
     }
+
+    public String getImagenUsuario() {
+        return imagenUsuario;
+    }
+
+    public void setImagenUsuario(String imagenUsuario) {
+        this.imagenUsuario = imagenUsuario;
+    }
+    
 
     public void setClave(String clave) {
         this.clave = clave;
@@ -60,8 +70,10 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "identificador=" + identificador + ", nombreSol=" + nombreSol + ", tipo=" + tipo + ", cursoArea=" + cursoArea + ", colegio=" + colegio + ", clave=" + clave + '}';
+        return "Usuario{" + "identificador=" + identificador + ", nombreSol=" + nombreSol + ", tipo=" + tipo + ", cursoArea=" + cursoArea + ", colegio=" + colegio + ", clave=" + clave + ", imagenUsuario=" + imagenUsuario + '}';
     }
+
+   
     
 
 }
