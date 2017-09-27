@@ -12,7 +12,7 @@ function getUser() {
         if (response == "false") {
             window.location.href = "index.html";
         } else {            
-            document.getElementById('perfil').innerHTML = '<img src="'+response.imagen+'" alt="NotFound">' + '<br>'
+            document.getElementById('perfil').innerHTML = '<img style="height: 200px; width: 200px;" src="'+response.imagenUsuario+'" alt="NotFound">' + '<br>'
                     + '<p>ID de Usuario: ' + response.identificador + '</p>' + '<br>'
                     + '<p>Nombre: ' + response.nombreSol + '</p>' + '<br>'
                     + '<p>Colegio: ' + response.colegio + '</p>' + '<br>'
