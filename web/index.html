@@ -9,82 +9,7 @@
     <script>
         window.setTimeout("document.getElementById('contenedor_carga').style.display='none';", 2500);
     </script>
-    <script>
-        $(document).ready(function() {
-            $(".modal").hide();
-        });
-
-        function mostrar() {
-            $(".modal").show();
-        }
-
-        function validarRegistro(identificador, pwd1, pwd2, colegio) {
-            if ((identificador !== "") && (colegio !== "") && (pwd1 !== "") && (pwd2 !== "")) {
-                if (pwd1 === pwd2) {
-                    var parametros = {
-                        "identificador": identificador,
-                        "colegio": colegio,
-                        "pwd2": pwd2
-
-                    };
-                    $.ajax({
-                        data: parametros,
-                        url: "Registro",
-                        type: "POST"
-
-                    }).done(function(response) {
-                        console.log(response);
-                        var valor = [];
-                        valor = response;
-                        if (valor[0] === true && valor[1] === true) {
-                            alert("Usuario registrado satisfactoriamente ahora puede iniciar sesión");
-                            window.location.href = "#about";
-                        } else {
-                            if (valor[0] === true && valor[1] === false) {
-                                alert("Este usuario ya se ha registrado");
-                            }
-                            if (valor[0] === false) {
-                                alert("Usted no se encuentra asociado a esta institución");
-                            } else {
-                                alert("Problemas durante el registro");
-                            }
-                        }
-                    });
-
-                } else {
-                    alert("Las claves no coinciden");
-                }
-            } else {
-                alert("Debe llenar los campos");
-            }
-        }
-
-        function iniciarSesion(user, pass) {
-            if ((user !== "") && (pass !== "")) {
-                var parametros = {
-                    "user": user,
-                    "pass": pass
-                };
-                $.ajax({
-                    data: parametros,
-                    url: "Inicio",
-                    type: "POST"
-
-                }).done(function(response) {
-                    console.log(response);
-                    var valor = response;
-                    if (valor === true) {
-                        window.location.href = "home.html";
-                    } else {
-                        alert("Usurio y/o contraseña incorrectos");
-                    }
-                });
-
-            } else {
-                alert("Debe ingresar los datos para iniciar sesión");
-            }
-        }
-    </script>
+    <script language="JavaScript" type="text/javascript" src="scripts/scriptIndex.js"></script>
 </head>
 
 <body id="top">
@@ -250,9 +175,10 @@
             <div class="log-in">
 
                 <h1 class="heading">Iniciar Sesión en Library-Soft</h1>
-                <input name="user" id="user" type="text" placeholder="Usuario">
-                <input name="pass" id="pass" type="password" placeholder="Contraseña">
-                <button id="ingresar" onclick="iniciarSesion(($('#user').val(), $('#pass').val()));" type="button">INGRESAR</button>
+                <input id="campo1" type="text" placeholder="Usuario">
+                <input id="campo2" type="password" placeholder="Contraseña">
+                <button id="ingresar" onclick="iniciarSesion();" type="button">INGRESAR</button>
+                
             </div>
             <a class="close-btn" href="#start"><i class=" fa fa-lg fa-times-circle"></i></a>
         </div>

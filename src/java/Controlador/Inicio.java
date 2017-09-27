@@ -1,6 +1,7 @@
 package Controlador;
 
 import DAO.DaoUsuario;
+import Modelo.Usuario;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
@@ -11,18 +12,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import java.sql.SQLException;
+import javax.servlet.http.HttpSession;
 
-public class Inicio extends HttpServlet { 
+public class Inicio extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String identificador = request.getParameter("user");
-        String clave = request.getParameter("pass");
+        String identificador = request.getParameter("valor1");
+        String clave = request.getParameter("valor2");
         try {
+            Usuario user;
             DaoUsuario daoU = new DaoUsuario();
-            boolean respuesta = daoU.validarUsuario(identificador, clave);
-            String json = new Gson().toJson(respuesta);
+            user = daoU.validarUsuario(identificador, clave);
+            if (identificador.equals(user.getIdentificador())) {
+                HttpSession session = request.getSession();
+                session.setAttribute("user", identificador);
+                session.setAttribute("pass", clave);
+            }
+            String json = new Gson().toJson(user);
             response.setContentType("application/json");
             response.getWriter().write(json);
         } catch (SQLException ex) {

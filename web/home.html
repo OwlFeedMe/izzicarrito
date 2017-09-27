@@ -1,26 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Pagina de Inicio</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <script language="JavaScript" type="text/javascript" src="scripts/jquery.min.js"></script>    
-    <link href="CSS/layout.css" rel="stylesheet" type="text/css" media="all">
-</head>
-<body>
-    <div id="contenedor_carga">
-        <img src="images/demo/titulo1.png" alt="">
-        <div id="carga"></div>
-        <div class="tag">
-            <p>Cargando...</p>
-        </div>
-    </div>
-    
-    <p> Hola</p>
-    
-    <script>
-        window.setTimeout("document.getElementById('contenedor_carga').style.display='none';", 5000);
-    </script>
-</body>
+    <head>
+        <title>Pagina de Inicio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <script language="JavaScript" type="text/javascript" src="scripts/jquery.min.js"></script>    
+        <link href="CSS/layout.css" rel="stylesheet" type="text/css" media="all">
+        <script type="text/javascript" src="scripts/scriptHome.js"></script> 
+    </head>
+    <body>        
+        <button onclick="closeSesion();">Cerrar Sesión</button>
+    </body>
 
 </html>

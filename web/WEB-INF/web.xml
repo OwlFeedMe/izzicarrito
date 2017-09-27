@@ -4,6 +4,14 @@
         <servlet-name>Listar</servlet-name>
         <servlet-class>Controlador.Listar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Sesion</servlet-name>
+        <servlet-class>Controlador.Sesion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CloseSesion</servlet-name>
+        <servlet-class>Controlador.CloseSesion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Listar</servlet-name>
         <url-pattern>/Listar</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>Inicio</servlet-name>
         <url-pattern>/Inicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Sesion</servlet-name>
+        <url-pattern>/Sesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CloseSesion</servlet-name>
+        <url-pattern>/CloseSesion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
