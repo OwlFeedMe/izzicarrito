@@ -130,6 +130,9 @@ a {
     outline: none;
     text-decoration: none;
 }
+.fl_center{
+    margin: 0 auto;    
+}
 
 .fl_left,
 .imgl {

@@ -34,7 +34,6 @@ public class Sesion extends HttpServlet {
                 response.getWriter().write("false");
             }
 
-            
         } catch (SQLException ex) {
             Logger.getLogger(Listar.class.getName()).log(Level.SEVERE, null, ex);
         } catch (URISyntaxException ex) {

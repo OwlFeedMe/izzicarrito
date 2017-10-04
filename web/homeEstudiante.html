@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
     <head>
         <title>LibrarySoft</title>
         <meta charset="utf-8">
@@ -8,8 +9,15 @@
         <script language="JavaScript" type="text/javascript" src="scripts/jquery.min.js"></script>
         <script>
             window.setTimeout("document.getElementById('contenedor_carga').style.display='none';", 2500);
+
         </script>
-        <script language="JavaScript" type="text/javascript" src="scripts/scriptIndex.js"></script>
+        <script type="text/javascript" src="scripts/scriptHome.js"></script>
+        <style>
+            #imageUser{
+                width: 50px;
+                height: 50px;
+            }
+        </style>
     </head>
 
     <body id="top">
@@ -24,38 +32,65 @@
             <div class="page-container">
                 <div id="topbar" class="hoc clear">
                     <ul>
-                        <li>librarysoft.com.co</li>
-                        <li><a href="index.html" title="Inicio"><i class="fa fa-lg fa-home"></i></a></li>
-                        <li><a href="#about" title="Iniciar Sesión" onclick="mostrar()"><i class="fa fa-lg fa-sign-in"></i></a></li>
-                        <li><a href="#about2" onclick="mostrar()" title="Registrarse"><i class="fa fa-lg fa-edit"></i></a></li>
+                        <li><p>Usuario:</p></li>
+                        <li><p id="ident"></p></li>
+                        <li><p id="nombre"></p></li>
+                        <li><p id="col"></p></li>
+                        <li><p id="curso"></p></li>
+                        <li><a onclick="closeSesion();" title="Cerrar Sesión"><i class="fa fa-lg fa-power-off"></i></a></li>
+                        <li><a href="#"  title="Mi Perfil"><img alt="NotFound" id="imageUser" src=""/></a></li>
+
                     </ul>
                 </div>
             </div>
         </div>
         <div class="wrapper row1">
             <header id="header" class="hoc clear">
-                <div id="logo" class="fl_left">
-                    <a href="index.html"><img id="imagenPrincipal" src="images/demo/titulo1.png" alt=""></a>
+                <div id="logo" class="fl_center">
+                    <a href="homeEstudiante.html"><img id="imagenPrincipal" src="images/demo/titulo1.png" alt=""></a>
                 </div>
-                <div class="fl_right"><a class="btn" href="#">Conoce quienes somos</a></div>
+
             </header>
         </div>
-        <div class="bgded" style="background-image:url('images/demo/backgrounds/img1.jpg');">
+        <div class="bgded" style="background-image:url('images/demo/backgrounds/img2.jpg');">
             <div class="wrapper row2">
-                <nav id="mainav" class="hoc clear">
+                <nav id="mainav" class="hoc clear"> 
                     <ul class="clear">
-                        <li class="active"><a href="index.html">Inicio</a></li>
-                        <li><a href="#beneficios">Nuestros Beneficios</a></li>
-                        <li><a href="#">Contáctanos</a></li>
-                        <li><a href="#">Quienes Somos</a></li>
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a class="drop" href="#">Pages</a>
+                            <ul>
+                                <li><a href="pages/gallery.html">Gallery</a></li>
+                                <li><a href="pages/full-width.html">Full Width</a></li>
+                                <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
+                                <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
+                                <li><a href="pages/basic-grid.html">Basic Grid</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="drop" href="#">Dropdown</a>
+                            <ul>
+                                <li><a href="#">Level 2</a></li>
+                                <li><a class="drop" href="#">Level 2 + Drop</a>
+                                    <ul>
+                                        <li><a href="#">Level 3</a></li>
+                                        <li><a href="#">Level 3</a></li>
+                                        <li><a href="#">Level 3</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Level 2</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Link Text</a></li>
+                        <li><a href="#">Link Text</a></li>
+                        <li><a href="#">Link Text</a></li>
+                        <li><a href="#">Long Link Text</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="wrapper overlay">
                 <article id="pageintro" class="hoc clear">
-                    <h2 class="heading">Más que una red de bibliotecas</h2>
-                    <p>Pensada para colegios y universidades.</p>
-                    <footer><a class="btn" href="#">Conoce más</a></footer>
+                    <h2 class="heading">Library-Soft para estudiantes y docentes</h2>
+                    <p>Verifica tus actividad en Library-Soft .</p>
+                    <footer><a class="btn" href="#">Bibliotecas</a></footer>
                 </article>
             </div>
         </div>
@@ -169,45 +204,11 @@
         </div>
         <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 
-        <!--Ventana modal de inicio de sesión-->
 
-        <span id="start" class="target"></span>
-        <span id="about" class="target"></span>
-        <div class="modal">
-            <div class="content">
-                <div class="log-in">
 
-                    <h1 class="heading">Iniciar Sesión en Library-Soft</h1>
-                    <input id="campo1" type="text" placeholder="Usuario">
-                    <input id="campo2" type="password" placeholder="Contraseña">
-                    <button id="ingresar" onclick="iniciarSesion();" type="button">INGRESAR</button>
-
-                </div>
-                <a class="close-btn" href="#start"><i class=" fa fa-lg fa-times-circle"></i></a>
-            </div>
-        </div>
-        <!--Ventana modal de inicio de registro-->
-        <span id="start2" class="target2"></span>
-        <span id="about2" class="target2"></span>
-        <div class="modal2">
-            <div class="content2">
-                <div class="sign-in">
-                    <h1 class="heading">Registrarse en Library-Soft</h1>
-                    <select name="colegio" id="colegio">
-                        <option value="" disabled selected>Colegio o Universidad</option>
-                        <option>Colegio 1</option>
-                        <option>Colegio 2</option>
-                    </select>
-                    <input type="text" name="identificador" id="identificador" placeholder="Numero de identificación">
-                    <input name="pwd1" id="pwd1" type="password" placeholder="Contraseña">
-                    <input name="pwd2" id="pwd2" type="password" placeholder="Repita Contraseña">
-                    <button onclick="validarRegistro($('#identificador').val(), $('#pwd1').val(), $('#pwd2').val(), $('#colegio').val());" type="button" id="registrarse">REGISTRARSE</button>
-                </div>
-                <a class="close-btn" href="#start2"><i class=" fa fa-lg fa-times-circle"></i></a>
-            </div>
-        </div>
 
         <script language="JavaScript" type="text/javascript" src="scripts/jquery.backtotop.js"></script>
         <script language="JavaScript" type="text/javascript" src="scripts/jquery.mobilemenu.js"></script>
     </body>
+
 </html>

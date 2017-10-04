@@ -9,12 +9,17 @@
         <script type="text/javascript" src="scripts/scriptHome.js"></script>       
     </head>
     <body style="background-color: white">        
-        <button onclick="closeSesion();">Cerrar Sesión</button>
+
         <div style="text-align: center">
+            <button onclick="closeSesion();">Cerrar Sesión</button>
             <h1>Perfil de usuario</h1>
             <div id="perfil" style="text-align: center">
-
             </div>
+            <form  method="get"  action="Foto">
+                <input style="text-align:center;" name="newFoto" type="file">
+                <input type="submit">
+            </form>
+
         </div>
     </body>
 
