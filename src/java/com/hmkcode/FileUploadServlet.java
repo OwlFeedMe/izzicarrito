@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hmkcode.vo.FileMeta;
+import java.io.File;
+import java.io.FileOutputStream;
 
 //this to be used with Java Servlet 3.0 API
 @MultipartConfig 
@@ -32,13 +34,11 @@ public class FileUploadServlet extends HttpServlet {
 		//files.addAll(MultipartRequestHandler.uploadByJavaServletAPI(request));			
 		
 		// 1. Upload File Using Apache FileUpload
+                files.removeAll(files);
 		files.addAll(MultipartRequestHandler.uploadByApacheFileUpload(request));
 		
 		// Remove some files
-		while(files.size() > 20)
-		{
-			files.remove(0);
-		}
+		
 		
 		// 2. Set response type to json
 		response.setContentType("application/json");
@@ -48,6 +48,17 @@ public class FileUploadServlet extends HttpServlet {
     	
     	// 4. Send resutl to client
     	mapper.writeValue(response.getOutputStream(), files);
+        
+		 
+		 FileMeta getFile = files.get(0);
+        InputStream input = getFile.getContent();
+            File outFile = new File(getFile.getFileName());
+            System.out.println(outFile.getAbsolutePath());
+            FileOutputStream output = new FileOutputStream(outFile);
+        int c;
+            while ((c = input.read()) != -1) {
+                output.write(c);
+            }
 	
 	}
 	/***************************************************
@@ -72,15 +83,15 @@ public class FileUploadServlet extends HttpServlet {
 			 	
 			 	// 5. Copy file inputstream to response outputstream
 		        InputStream input = getFile.getContent();
-		        OutputStream output = response.getOutputStream();
-		        byte[] buffer = new byte[1024*10];
-		        
-		        for (int length = 0; (length = input.read(buffer)) > 0;) {
-		            output.write(buffer, 0, length);
-		        }
-		        
-		        output.close();
-		        input.close();
+            File outFile = new File(getFile.getFileName());
+            System.out.println(outFile.getAbsolutePath());
+            FileOutputStream output = new FileOutputStream(outFile);
+            byte[] buffer = new byte[1024 * 10];
+
+            for (int length = 0; (length = input.read(buffer)) > 0;) {
+                output.write(buffer, 0, length);
+            }
+            
 		 }catch (IOException e) {
 				e.printStackTrace();
 		 }
